@@ -1,7 +1,10 @@
 <h1>All movies of the <%=@list.name%>'s list</h1>
 
+<%if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400 %>
+><%end%>
 
-  <% @movies.each do |movie| %>
+  <% @list.movies.each do |movie| %>
     <div class='container'>
       <ul>
         <li><%=movie.title%> | <%=movie.rating%></li>
